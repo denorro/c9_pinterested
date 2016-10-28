@@ -23,7 +23,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Auto Generate twitter bootstrap views
-gem 'bootstrap-generators', '~> 3.3.4'
+#gem 'bootstrap-generators', '~> 3.3.4'
+
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+
+gem 'devise', '~> 4.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
