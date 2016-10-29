@@ -12,31 +12,56 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active">
-            <%= link_to "Home", root_path %>
+            <%= link_to root_path do %>
+              <span>Home</span>
+              <i class="glyphicon glyphicon-home"></i>
+            <% end %>
           </li>
           <li>
             <%= link_to "About Us", home_about_path %>
           </li>
           <li>
             <%= link_to "#" do %>
-              Contact Us
+              <span>Contact Us</span>
               <i class="glyphicon glyphicon-envelope"></i>
             <% end %>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
+            <%= link_to new_pin_path do %>
+              <span>New Pin</span>
+              <i class="glyphicon glyphicon-plus"></i>
+            <% end %>
+          </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to edit_user_registration_path do %>
+              <span>Edit Profile</span>
+              <i class="glyphicon glyphicon-user"></i>
+            <% end %>
+          </li>
+           <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <span>Sign Out</span>
+              <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
+            <% end %>
+          </li>
+        <% else %>
+          <ul class="nav navbar-nav navbar-right">
+          <li>
             <%= link_to new_user_registration_path do %>
-              Register
-              <i class="glyphicon glyphicon-briefcase"></i>
+              <span>Sign Up</span>
+              <i class="glyphicon glyphicon-user"></i>
             <% end %>
           </li>
            <li>
             <%= link_to new_user_session_path do %>
-              Sign In
-              <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+              <span>Sign In</span>
+              <i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>
             <% end %>
           </li>
+        <% end %>
         </ul>
       </div>
     </div>
