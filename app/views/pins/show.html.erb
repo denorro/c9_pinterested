@@ -10,8 +10,8 @@
   <h1>Show pin</h1>
 </div>
 
-<dl class="dl-horizontal">
-  <dt>Description:</dt>
-  <dd><%= @pin.description %></dd>
-
-</dl>
+<div class="form-group">
+  <label class="form-label">Description</label>
+  <input type="input" class="form-control" readonly="readonly" value="<%= @pin.description %>" />
+  <%# text_field @pin.description, class:"form-control", readonly:"readonly" %>
+</div>
