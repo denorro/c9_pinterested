@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>Contact Us</h2>
+  </div>
+<div class="panel-body">
+<%= form_for @contact, url:home_send_contact_path(@contact), method: :post do |f| %>
+
+    <div class="form-group">
+        <%= f.text_field :fname, class:"form-control", placeholder:"First Name...", required:"required" %>
+    </div>
+    
+    <div class="form-group">
+        <%= f.text_field :lname, class:"form-control", placeholder:"Last Name...", required:"required" %>
+    </div>
+    
+    <div class="form-group">
+        <%= f.text_field :phone, class:"form-control", placeholder:"Phone Number...", required:"required" %>
+    </div>
+    
+    <div class="form-group">
+        <%= f.text_field :email, class:"form-control", placeholder:"Email...", required:"required" %>
+    </div>
+    
+    <div class="form-group">
+        <%= f.text_area :message, class:"form-control", rows:5, cols:10, placeholder:"Message...", required:"required", style:"resize:none" %>
+    </div>
+    
+    <%= f.submit class:"btn btn-primary" %>
+    <button type="reset" class="btn btn-default">Cancel</button>
+<% end %>
+</div>
+</div>
