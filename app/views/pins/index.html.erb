@@ -1,16 +1,24 @@
+<div id="pinListDiv">
 <% if @pins.any? %>
     <div class="row">
       <% @pins.each do |p| %>
         <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <%= image_tag p.image, alt:"Missing Image", class:"img-responsive" %>
-          <div class="caption">
-            <h4><%= p.description.upcase %></h4>
-            <%= link_to 'Show', p, class:"btn btn-primary" %>
-            <%= link_to 'Edit', edit_pin_path(p), class:"btn btn-warning" %>
-            <%= link_to 'Delete', p, method: :delete, data:{ confirm: 'Are You Sure?'}, class:"btn btn-danger" %>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4><%= p.description.upcase %></h4>
+            </div>
+            <div class="panel-body">
+              <%= link_to p do %>
+                <%= image_tag p.image, alt:"Missing Image", class:"img-responsive" %>
+              <% end %>
+            </div>
+            <% if p.user == current_user %>
+              <div class="panel-footer">
+                <%= link_to 'Edit', edit_pin_path(p), class:"btn btn-default" %>
+                <%= link_to 'Delete', p, method: :delete, data:{ confirm: 'Are You Sure?'}, class:"btn btn-danger" %>
+                </div>
+            <% end %>
           </div>
-        </div>
       </div>
       <% end %>
     </div>
@@ -20,4 +28,4 @@
     <h1>No Pins Exists</h1>
   </div>
 <% end %>
-  
+</div>
