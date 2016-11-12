@@ -16,11 +16,15 @@
               </div>
             <% end %>
           </div>
-      </div>
+        </div>
       <% end %>
+      
 <% else %>
   <div class="jumbotron">
     <h1>No Pins Exists</h1>
   </div>
 <% end %>
+</div>
+<div class="center">
+  <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
