@@ -7,7 +7,9 @@
                 <%= image_tag pin.image, alt:"Missing Image", class:"img-responsive" %>
               <% end %>
             <div class="panel-body">
-              <%= pin.description.upcase %>
+              <%= pin.description.upcase %><br/><br/>
+              <strong><%= pin.user.name if pin.user %></strong><br/>
+              
             </div>
             <% if pin.user == current_user %>
               <div class="panel-footer">
